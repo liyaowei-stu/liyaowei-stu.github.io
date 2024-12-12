@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="BrushEdit: All-In-One Image Inpainting and Editing">
+  <meta name="keywords" content="Image Inpainting, Image Generation, Image Editing, Diffusion Models, Multi-modal Large Language Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrushEdit: All-In-One Image Inpainting and Editing</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./assets/logo_brushedit.png">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js_slide/fontawesome.all.min.js"></script>
+  <script src="./static/js_slide/bulma-carousel.min.js"></script>
+  <script src="./static/js_slide/bulma-slider.min.js"></script>
+  <script src="./static/js_slide/index.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Vendor Stylesheets -->
+  <!--=================js==========================-->
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/juxtapose.css">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./assets/logo_brushedit.png">
+            </a>
+          </div>
+          <h1 class="title is-2 publication-title" >BrushEdit: All-In-One Image Inpainting and Editing</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Yaowei Li</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="">Yuxuan Bian</a><sup>3*</sup>,</span>
+            <span class="author-block">
+              <a href="https://juxuan27.github.io/">Xuan Ju</a><sup>3*</sup>,</span>
+            <span class="author-block">
+              <a href="">Zhaoyang Zhang</a><sup>2‡</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/yingshanprofile">Ying Shan</a><sup>1</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://cure-lab.github.io/">Qiang Xu</a><sup>3✉</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ARC Lab, Tencent PCG <sup>2</sup>Peking University <br/> <sup>3</sup>The Chinese University of Hong Kong <br/> ✉ Corresponding Author ‡ Project Lead
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>ReadPaper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1NBuCVicoQ3d3VZo-_nNIRhB4k9EVZFLV/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>  
+              <!-- huggingface Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/TencentARC/BrushEdit"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-google-play"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://forms.gle/9TgMZ8tm49UYsZ9s5"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--=================paper Video==========================-->
+<section class="hero is-light is-small">
+  <div class="columns is-centered has-text-centered"  style="margin-top: 10px; margin-bottom: 20px;">
+    <div class="column is-three-fifths">
+      <h2 class="title is-3" style="font-family: Comic Sans MS">Demonstration Video</h2>
+      
+      <div class="publication-video">
+        <iframe width="560" height="315" src="https://drive.google.com/file/d/1NBuCVicoQ3d3VZo-_nNIRhB4k9EVZFLV/preview" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="has-text-centered">
+      😎 We recommend watching in full screen and with sound on. 😎
+      </div>
+      <span style="color:#0c9de1"><a href="https://www.youtube.com/watch?v=ZuLWiP4ITdU">BGM</a></span> and <span style="color:#0c9de1"><a href="">YouTube</a></span>.
+    </div>
+  </div>
+</section>
+
+
+<!--=================TL;DR==========================-->
+<section class="section"></section>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">TL;DR</h2>
+        <div class="content is-centered has-text-centered">
+          <p>
+          BrushEdit is an advanced, unified AI agent for image inpainting and editing.
+          </p>
+          <p></p>Main Elements: 🛠️ Fully automated / 🤠 Interactive editing.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--=================Abstract==========================-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Image editing has advanced significantly with the development of both inversion-based and instruction-based methods. However, current inversion-based approaches struggle with major modifications (e.g., adding or removing objects) due to the structured nature of inversion noise, which hinders substantial changes. Meanwhile, instruction-based methods often constrain users to black-box operations, limiting direct interaction for specifying editing regions and intensity. To address these limitations, we propose <strong>BrushEdit</strong>, a novel inpainting-based instruction-guided image editing paradigm, which leverages multimodal large language models (MLLMs) and image inpainting models to enable autonomous, user-friendly, and interactive free-form instruction editing. Specifically, we devise a system enabling free-form instruction editing by integrating <strong>MLLMs</strong> and a dual-branch <strong>image inpainting model</strong> in an agent-cooperative framework to perform editing category classification, main object identification, mask acquisition, and editing area inpainting. Extensive experiments show that our framework effectively combines MLLMs and inpainting models, achieving superior performance across seven key metrics, including mask region preservation, and editing effect coherence.
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Model Overview -->
+<section class="section" style="background-color: #f1f1f1;">
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Pipeline Overview</h2>
+        <div class="content has-text-justified">
+        <p>Our approach consists of four main steps:
+          (i) Editing category classification: determine the type of editing required.
+          (ii) Identification of the primary editing object: Identify the main object to be edited.
+          (iii) Acquisition of the editing mask and target Caption: Generate the editing mask and corresponding target caption.
+          (iv) Image inpainting: Perform the actual image editing.
+          Steps (i) to (iii) utilize <strong>pre-trained MLLMs</strong> and <strong>detection models</strong> to ascertain the editing type, target object, editing masks, and target caption. Step (iv) involves image editing using the dual-branch inpainting model <strong>improved BrushNet</strong>. This model inpaints the target areas based on the target caption and editing masks, leveraging the generative potential and background preservation capabilities of inpainting models.
+        
+        </p>
+       </div>
+        <div class="content has-text-justified">
+          <div style="text-align: center; vertical-align:middle">
+            <img src="./assets/teaser/teaser.png" width="900">
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+
+<!-- Remove Something-->
+<section class="section">
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Remove Something</h2>
+        <div class="content has-text-justified">
+          <div class="column is-full-width">
+            <figure>
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="100%" >
+                <source src="./assets/movie/remove.mp4" type="video/mp4">
+              </video>      
+            </figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+
+<!-- Add Something-->
+<section class="section">
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Add Something</h2>
+        <div class="content has-text-justified">
+          <div class="column is-full-width">
+            <figure>
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="100%" >
+                <source src="./assets/movie/add.mp4" type="video/mp4">
+              </video>      
+            </figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+
+<!-- Background Editing -->
+<section class="section">
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Background Editing</h2>
+        <div class="content has-text-justified">
+          <div class="column is-full-width">
+            <figure>
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="80%" >
+                <source src="./assets/movie/background_edit.mp4" type="video/mp4">
+              </video>      
+            </figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+
+<!-- Object Editing -->
+<section class="section">
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="font-family: Comic Sans MS">Object Editing</h2>
+        <div class="content has-text-justified">
+          <div class="column is-full-width">
+            <figure>
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline width="100%">
+                <source src="./assets/movie/local_obj.mp4" type="video/mp4">
+              </video>      
+            </figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3" style="font-family: Comic Sans MS">Enjoy!☕️ Happy Christmas!🎄</h2>
+</div>
+    
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Cite Us</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+  
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Image Slider Javascripts -->
+<!--=================Functions==========================-->
+<script src="static/js/juxtapose.js"></script>
+
+<script>
+  var slider;
+  let origImages = [
+    { "src": "BrushNet/teaser/edit_1.jpg", "label": "Masked Image", },
+    { "src": "BrushNet/teaser/gt_1.jpg", "label": "Generated Image", }
+  ];
+  let origOptions = {
+    "makeResponsive": true,
+    "showLabels": true,
+    "mode": "horizontal",
+    "showCredits": true,
+    "animate": true,
+    "startingPosition": "50"
+  };
+
+  const juxtaposeSelector = "#juxtapose-embed";
+  const transientSelector = "#juxtapose-hidden";
+
+  
+  function tab_gallery_click(name) {
+    // Get the expanded image
+    let inputImage = {
+      label: "Masked Image",
+    };
+    let outputImage = {
+      label: "Generated Image",
+    };
+
+    inputImage.src = "BrushNet/teaser/".concat("edit_",name, ".jpg")
+    outputImage.src = "BrushNet/teaser/".concat("gt_",name, ".jpg")
+
+
+    if(name=="1"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A young man with <strong style='color:#00aaff';>blue eyes</strong> and brown hair"
+    }
+    if(name=="2"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A beautiful woman with <strong style='color:#00aaff';>long blonde hair</strong> and <strong style='color:#00aaff';>stars</strong> in her hair"
+    }
+    if(name=="3"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "The cover of a <strong style='color:#00aaff';>book</strong>, the <strong style='color:#00aaff';>girl</strong> and the dog"
+    }
+    if(name=="4"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman</strong> holding a rainbow flag in the air"
+    }
+    if(name=="5"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman in futuristic armor</strong> and glasses standing in front of a <strong style='color:#00aaff';>city</strong>"
+    }
+    if(name=="6"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman</strong> with her hands on her face"
+    }
+    if(name=="7"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman</strong> in a witch hat and <strong style='color:#00aaff';>black dress</strong>"
+    }
+    if(name=="8"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A blue <strong style='color:#00aaff';>butterfly</strong> with <strong style='color:#00aaff';>stars</strong> on it"
+    }
+    if(name=="9"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A lipstick with <strong style='color:#00aaff';>red powder</strong> around it"
+    }
+    if(name=="10"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "Cartoon girl sitting at a table with <strong style='color:#00aaff';>pizza and drink</strong>"
+    }
+    if(name=="11"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman</strong> in traditional chinese dress holding a <strong style='color:#00aaff';>flower</strong>"
+    }
+    if(name=="12"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>painting</strong> of a <strong style='color:#00aaff';>house</strong> on a hill with a path leading to it"
+    }
+    if(name=="13"){
+      document.getElementById("juxtapose-embed-text").innerHTML = "A <strong style='color:#00aaff';>woman</strong> in a gold dress holding an <strong style='color:#00aaff';>apple</strong>"
+    }
+
+    let images = [inputImage, outputImage];
+    let options = slider.options;
+    options.callback = function (obj) {
+      var newNode = document.getElementById(obj.selector.substring(1));
+      var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+      
+      console.log(obj.selector.substring(1));
+      console.log(newNode.children[0]);
+      oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+      //newNode.removeChild(newNode.children[0]);
+
+    };
+
+    slider = new juxtapose.JXSlider(transientSelector, images, options);
+  };
+
+  (function () {
+    slider = new juxtapose.JXSlider(
+      juxtaposeSelector, origImages, origOptions);
+    //document.getElementById("left-button").onclick = replaceLeft;
+    //document.getElementById("right-button").onclick = replaceRight;
+  })();
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  // expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = name;
+  // Show the container element (hidden with CSS)
+  // expandImg.parentElement.style.display = "block";
+
+  $(".flip-card").click(function () {
+    console.log("fading in")
+    div_back = $(this).children().children()[1]
+    div_front = $(this).children().children()[0]
+    // console.log($(this).children("div.flip-card-back"))
+    console.log(div_back)
+    $(div_front).addClass("out");
+    $(div_front).removeClass("in");
+
+    $(div_back).addClass("in");
+    $(div_back).removeClass("out");
+
+  });
+
+  $(".flip-card").mouseleave(function () {
+    console.log("fading in")
+    div_back = $(this).children().children()[1]
+    div_front = $(this).children().children()[0]
+    // console.log($(this).children("div.flip-card-back"))
+    console.log(div_back)
+    $(div_front).addClass("in");
+    $(div_front).removeClass("out");
+
+    $(div_back).addClass("out");
+    $(div_back).removeClass("in");
+
+  });
+</script>
+
+
+</body>
+</html>
+
+
